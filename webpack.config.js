@@ -1,13 +1,12 @@
 const path = require('path')
 
-const BUILD_DIR = path.resolve(__dirname, 'dist')
-const APP_DIR = path.resolve(__dirname, 'src')
-
 module.exports = {
-  entry: APP_DIR,
+  entry: './src/index.js',
   output: {
-    path: BUILD_DIR,
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
+    library: 'Tippy2',
+    libraryTarget: 'umd',
     filename: 'tippy2.js'
   },
   node: {
@@ -16,7 +15,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js|.jsx?$/,
+        test: /\.js?$/,
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
@@ -37,15 +36,13 @@ module.exports = {
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
-      amd: 'react',
-      umd: 'react'
+      amd: 'react'
     },
     'react-dom': {
       root: 'ReactDOM',
       commonjs2: 'react-dom',
       commonjs: 'react-dom',
-      amd: 'react-dom',
-      umd: 'react-dom'
+      amd: 'react-dom'
     }
   }
 }
