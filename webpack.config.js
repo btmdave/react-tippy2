@@ -31,5 +31,28 @@ module.exports = {
         use: [ 'style-loader', 'css-loader' ]
       }
     ]
+  },
+  externals: {
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react',
+      umd: 'react'
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom',
+      umd: 'react-dom'
+    },
+    'popper.js': {
+      root: 'Popper',
+      commonjs2: 'popper.js',
+      commonjs: 'popper.js',
+      amd: 'popper.js',
+      umd: 'popper.js'
+    }
   }
 }
