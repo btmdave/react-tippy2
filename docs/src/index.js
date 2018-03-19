@@ -1,9 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Tippy2 from '../../src/Tippy2'
-
-
-
+import Tippy2 from '../../src/tippy2'
 
 class App extends React.Component {
   render () {

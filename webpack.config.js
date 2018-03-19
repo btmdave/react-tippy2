@@ -4,7 +4,7 @@ const BUILD_DIR = path.resolve(__dirname, 'dist')
 const APP_DIR = path.resolve(__dirname, 'src')
 
 module.exports = {
-  entry: APP_DIR + '/Tippy2',
+  entry: APP_DIR,
   output: {
     path: BUILD_DIR,
     publicPath: '/',
@@ -46,13 +46,6 @@ module.exports = {
       commonjs: 'react-dom',
       amd: 'react-dom',
       umd: 'react-dom'
-    },
-    'popper.js': {
-      root: 'Popper',
-      commonjs2: 'popper.js',
-      commonjs: 'popper.js',
-      amd: 'popper.js',
-      umd: 'popper.js'
     }
   }
 }

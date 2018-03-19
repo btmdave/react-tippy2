@@ -2,7 +2,7 @@
   "name": "react-tippy2",
   "version": "1.0.1",
   "description": "",
-  "main": "dist/tippy2.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "webpack -p"
   },
