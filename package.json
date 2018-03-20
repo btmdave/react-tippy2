@@ -1,6 +1,6 @@
 {
   "name": "react-tippy2",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/tippy2.js",
   "repository": {
@@ -16,7 +16,7 @@
      "tippy",
      "tippy 2.0",
      "tippy tooltip",
-     "tooltip",
+     "tooltip"
    ],
   "author": "",
   "license": "ISC",
