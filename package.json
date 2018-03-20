@@ -3,9 +3,21 @@
   "version": "1.0.3",
   "description": "",
   "main": "dist/tippy2.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btmdave/react-tippy2.git"
+  },
   "scripts": {
     "build": "webpack -d"
   },
+  "keywords": [
+     "react",
+     "react-component",
+     "tippy",
+     "tippy 2.0",
+     "tippy tooltip",
+     "tooltip",
+   ],
   "author": "",
   "license": "ISC",
   "dependencies": {
