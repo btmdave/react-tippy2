@@ -17,8 +17,8 @@ class Tippy2 extends React.Component {
     this.destroy()
   }
   componentWillReceiveProps (nextProps) {
-    if (nextProps.hide && this.tippyDOM) {
-      this.tippyDOM._tippy.hide() 
+    if (nextProps.hide && this.tippyDOM && (nextProps.hide !== this.props.hide)) {
+      this.tippyDOM._tippy.hide()
     }
   }
   init () {
