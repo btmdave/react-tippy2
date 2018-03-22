@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import propTypes from 'prop-types'
-import ReactDOMServer from 'react-dom/server'
+import ReactDom from 'react-dom'
 import Tippy from 'tippy.js/dist/tippy'
 import 'tippy.js/dist/tippy.css'
 
@@ -18,7 +18,7 @@ class Tippy2 extends React.Component {
   }
   getHtml () {
     const div = document.createElement('div')
-    div.innerHTML = ReactDOMServer.renderToString(this.props.html)
+    ReactDom.render(this.props.html)
     return div
   }
   init () {
@@ -27,7 +27,7 @@ class Tippy2 extends React.Component {
     this.tippyDOM.setAttribute('title', this.props.title)
 
     this.tippy = Tippy(this.tippyDOM, {
-      html: html,
+      html: el => html,
       allowTitleHTML: this.props.allowTitleHTML,
       animateFill: this.props.animateFill,
       animation: this.props.animation,
