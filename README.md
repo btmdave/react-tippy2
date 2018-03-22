@@ -26,12 +26,14 @@ const App = () => {
 
 #### With HTML content
 ```
-const html = () => {
-  return (
-    <div>This is html content</div>
-  )
+class Html extends React.Component {
+  render () {
+    return (
+      <div>This is html Content</div>
+    )
+  }
 }
 
-<Tippy2 title='This is a tooltip!' html={html}></Tippy2>  
+<Tippy2 title='This is a tooltip!' html={<Html />}></Tippy2>  
 
 ```

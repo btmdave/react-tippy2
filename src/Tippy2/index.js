@@ -18,7 +18,7 @@ class Tippy2 extends React.Component {
   }
   getHtml () {
     const div = document.createElement('div')
-    div.innerHTML = ReactDOMServer.renderToString(this.props.html())
+    div.innerHTML = ReactDOMServer.renderToString(this.props.html)
     return div
   }
   init () {
@@ -133,7 +133,7 @@ Tippy2.defaultProps = {
 }
 
 Tippy2.propTypes = {
-  html: propTypes.func
+  html: propTypes.element
 }
 
 export default Tippy2
