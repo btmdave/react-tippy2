@@ -16,6 +16,11 @@ class Tippy2 extends React.Component {
   componentWillUnmount () {
     this.destroy()
   }
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.hide && this.tippyDOM) {
+      this.tippyDOM._tippy.hide() 
+    }
+  }
   init () {
 
     this.tippyDOM.setAttribute('title', this.props.title)
@@ -133,7 +138,8 @@ Tippy2.defaultProps = {
   touchHold: false,
   trigger: 'mouseenter focus',
   updateDuration: 350,
-  zIndex: 9999
+  zIndex: 9999,
+  hide: false
 }
 
 Tippy2.propTypes = {
