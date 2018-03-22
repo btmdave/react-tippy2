@@ -16,18 +16,12 @@ class Tippy2 extends React.Component {
   componentWillUnmount () {
     this.destroy()
   }
-  getHtml () {
-    const div = document.createElement('div')
-    ReactDom.render(this.props.html)
-    return div
-  }
   init () {
-    const html = (this.props.html) ? this.getHtml() : false
 
     this.tippyDOM.setAttribute('title', this.props.title)
 
-    this.tippy = Tippy(this.tippyDOM, {
-      html: el => html,
+    const options = {
+      html: false,
       allowTitleHTML: this.props.allowTitleHTML,
       animateFill: this.props.animateFill,
       animation: this.props.animation,
@@ -66,7 +60,17 @@ class Tippy2 extends React.Component {
       trigger: this.props.trigger,
       updateDuration: this.props.updateDuration,
       zIndex: this.props.zIndex
-    })
+    }
+
+    if (this.props.html) {
+      options.html = el => {
+        const elm = document.createElement('div')
+        ReactDom.render(this.props.html, elm);
+        return elm;
+      }
+    }
+
+    this.tippy = Tippy(this.tippyDOM, options)
   }
   destroy() {
     if (this.tippy) {

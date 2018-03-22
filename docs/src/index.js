@@ -8,7 +8,7 @@ class App extends React.Component {
     class Html extends React.Component {
       render () {
         return (
-          <div>This is html Content</div>
+          <div>This is html content</div>
         )
       }
     }
