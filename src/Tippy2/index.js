@@ -1,101 +1,71 @@
-import React, { Fragment } from 'react'
-import propTypes from 'prop-types'
-import ReactDom from 'react-dom'
-import Tippy from 'tippy.js/dist/tippy'
-import 'tippy.js/dist/tippy.css'
+import React, { Fragment } from 'react';
+import propTypes from 'prop-types';
+import ReactDom from 'react-dom';
+import Tippy from 'tippy.js/dist/tippy';
+import 'tippy.js/dist/tippy.css';
 
 class Tippy2 extends React.Component {
   constructor(props) {
-    super(props)
-    this.init = this.init.bind(this)
-    this.destroy = this.destroy.bind(this)
+    super(props);
+    this.init = this.init.bind(this);
+    this.destroy = this.destroy.bind(this);
   }
-  componentDidMount () {
-    this.init()
+
+  componentDidMount() {
+    this.init();
   }
-  componentWillUnmount () {
-    this.destroy()
+
+  componentWillUnmount() {
+    this.destroy();
   }
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.hide && this.tippyDOM && (nextProps.hide !== this.props.hide)) {
-      this.tippyDOM._tippy.hide()
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.hide && this.tippyDOM && nextProps.hide !== this.props.hide) {
+      this.tippyDOM._tippy.hide();
     }
   }
-  init () {
 
-    this.tippyDOM.setAttribute('title', this.props.title)
+  init() {
+    this.tippyDOM.setAttribute('title', this.props.title);
 
     const options = {
       html: false,
-      allowTitleHTML: this.props.allowTitleHTML,
-      animateFill: this.props.animateFill,
-      animation: this.props.animation,
-      appendTo: this.props.appendTo,
-      arrow: this.props.arrow,
-      arrowTransform: this.props.arrowTransform,
-      arrowType: this.props.arrowType,
-      createPopperInstanceOnInit: this.props.createPopperInstanceOnInit,
-      delay: this.props.delay,
-      distance: this.props.distance,
-      duration: this.props.duration,
-      dynamicTitle: this.props.dynamicTitle,
-      flip: this.props.flip,
-      flipBehavior: this.props.flipBehavior,
-      followCursor: this.props.followCursor,
-      hideOnClick: this.props.hideOnClick,
-      inertia: this.props.inertia,
-      interactive: this.props.interactive,
-      interactiveBorder: this.props.interactiveBorder,
-      livePlacement: this.props.livePlacement,
-      maxWidth: this.props.maxWidth,
-      multiple: this.props.multiple,
-      offset: this.props.offset,
-      onHidden: this.props.onHidden,
-      onHide: this.props.onHide,
-      onShow: this.props.onShow,
-      onShown: this.props.onShown,
-      performance: this.props.performance,
-      placement: this.props.placement,
-      popperOptions: this.props.popperOptions,
-      size: this.props.size,
-      sticky: this.props.sticky,
-      target: this.props.target,
-      theme: this.props.theme,
-      touchHold: this.props.touchHold,
-      trigger: this.props.trigger,
-      updateDuration: this.props.updateDuration,
-      zIndex: this.props.zIndex
-    }
+      ...this.props,
+    };
 
     if (this.props.html) {
       options.html = el => {
-        const elm = document.createElement('div')
+        const elm = document.createElement('div');
         ReactDom.render(this.props.html, elm);
         return elm;
-      }
+      };
     }
 
-    this.tippy = Tippy(this.tippyDOM, options)
+    this.tippy = Tippy(this.tippyDOM, options);
   }
+
   destroy() {
     if (this.tippy) {
-      this.tippyDOM._tippy.destroy()
-      this.tippyDOM = null
-      this.tippy = null
+      this.tippyDOM._tippy.destroy();
+      this.tippyDOM = null;
+      this.tippy = null;
     }
   }
+
   render() {
     return (
       <div
         title={this.props.title}
         style={{
-            display: 'inline',
-            ...this.props.style
-          }}
-        ref={(tooltip) => { this.tippyDOM = tooltip }}>
+          display: 'inline',
+          ...this.props.style,
+        }}
+        ref={tooltip => {
+          this.tippyDOM = tooltip;
+        }}>
         {this.props.children}
       </div>
-    )
+    );
   }
 }
 
@@ -139,11 +109,11 @@ Tippy2.defaultProps = {
   trigger: 'mouseenter focus',
   updateDuration: 350,
   zIndex: 9999,
-  hide: false
-}
+  hide: false,
+};
 
 Tippy2.propTypes = {
-  html: propTypes.element
-}
+  html: propTypes.element,
+};
 
-export default Tippy2
+export default Tippy2;
